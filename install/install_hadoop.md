@@ -212,3 +212,4 @@ sudo chown -R yarn:yarn /hadoop/data/yarn/local /hadoop/data/yarn/logs
     <value>3096</value>
 </property>
 </configuration>
+```
