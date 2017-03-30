@@ -19,7 +19,7 @@ do
     ssh -qt ifnoelse@node-0$i 'for x in `cd /etc/init.d ; ls hadoop-hdfs-*` ; do sudo service $x start ; done'
 done
 ```
-![](img/start-dfs.png)
+![](../img/start-dfs.png)
 
 停止hdfs脚本
 ``` shell
@@ -101,4 +101,4 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar wordcount /us
 ``` bash
 hadoop fs -cat /user/ifnoelse/output/part-r-00000
 ```
-![](img/wordcount.png)
+![](../img/wordcount.png)

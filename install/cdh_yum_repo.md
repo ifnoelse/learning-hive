@@ -10,7 +10,7 @@ http://archive.cloudera.com/cdh5/repo-as-tarball/
 
 ### 配置nginx做为yum本地源
 将刚才下载的cdh软件包解压到/usr/share/nginx/html/
-![](img/chd_repo.png)
+![](../img/chd_repo.png)
 
 修改cdh/cloudera-cdh5.repo
 ```
