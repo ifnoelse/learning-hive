@@ -9,3 +9,5 @@
 
 * 文档
   * [Cloudera Product Documentation](https://www.cloudera.com/documentation.html)
+  * [Hadoop常用组件](http://www.cnblogs.com/tankaixiong/p/4273178.html)
+  * [Hadoop Ecosystem Table](http://hadoopecosystemtable.github.io/)
