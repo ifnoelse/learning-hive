@@ -1,7 +1,6 @@
 * [介绍](README.md)
 * [hadoop概览](README.md)
   * [Hadoop生态系统](hadoop_overview/hadoop_ecosystem.md)
-  * [Hadoop核心组件](hadoop_overview/hadoop_core.md)
   * [HDFS介绍](hadoop_overview/hdfs.md)
   * [YARN介绍](hadoop_overview/yarn.md)
   * [Hive介绍](hadoop_overview/hive.md)
