@@ -3,7 +3,7 @@
   * [hadoop发行版本](hadoop_dist.md)
   * [安装CDH5](install_cdh5.md)
     * [准备服务器](prepare_server.md)
-    * [配置本地yum源](local_yum_repo.md)
+    * [配置CDH源](cdh_yum_repo.md)
   * [安装Hive](install_hive.md)
 * [Hive快速体验](hive_start.md)
 * [参考文献](REFERENCE.md)
