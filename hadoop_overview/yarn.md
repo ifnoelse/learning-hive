@@ -1,7 +1,7 @@
 # YARN介绍
 ## Hadoop 1 vs Hadoop 2
 ### Hadoop 1 vs Hadoop 2架构图
-![](../img/h1_h2_architecture.png)
+![](../img/h1_h2_arc.png)
 ### Hadoop 1 vs Hadoop 2组件图
 ![](../img/h1_h2_component.png)
 * hadoop 1 中资源管理与应用框架混合在一起
