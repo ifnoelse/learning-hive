@@ -14,5 +14,6 @@
   * [安装Hive](install/install_hive.md)
     * [安装MySQL](install/install_mysql.md)
     * [安装及配置Hive](install/install_config_hive.md)
-* [Hive快速体验](hive_start.md)
+* [Hive快速体验](hive_starting/hive_starting.md)
+  * [Hive介绍](hive_starting/hive_intro.md)
 * [参考文献](REFERENCE.md)
