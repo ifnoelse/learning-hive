@@ -1,1 +1,0 @@
-![](../img/hive_arc.png)
