@@ -9,6 +9,8 @@
   * 《Hive编程指南》
 
 * 文档
+  * [M/R命令参考](http://hadoop.apache.org/docs/r2.7.1/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredCommands.html)
+  * [HDFS命令参考](http://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html)
   * [Cloudera Product Documentation](https://www.cloudera.com/documentation.html)
   * [Hadoop常用组件](http://www.cnblogs.com/tankaixiong/p/4273178.html)
   * [Hadoop Ecosystem Table](http://hadoopecosystemtable.github.io/)
