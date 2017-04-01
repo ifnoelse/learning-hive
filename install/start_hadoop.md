@@ -35,7 +35,7 @@ done
 ```
 ### 初始化HDFS中的相关目录
 执行以下命令完成相关目录创建
-``` shell
+``` bash
 sudo -u hdfs hadoop fs -mkdir /tmp
 sudo -u hdfs hadoop fs -chmod -R 1777 /tmp
 sudo -u hdfs hadoop fs -mkdir -p /user/history

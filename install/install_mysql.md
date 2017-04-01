@@ -20,7 +20,7 @@ sudo grep 'temporary password' /var/log/mysqld.log
 ```
 
 初始化hive元数据库
-``` shell
+``` bash
 $ mysql -u root -p
 Enter password:
 mysql> CREATE DATABASE metastore;
