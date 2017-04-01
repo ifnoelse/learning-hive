@@ -59,8 +59,10 @@ hadoop fs
 查看hdfs命令行支持的命令
 ![](../img/hdfs_cmd.png)
 ## 其他Hadoop命令
-* [M/R命令参考](http://hadoop.apache.org/docs/r2.7.1/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredCommands.html)
+### [M/R命令参考](http://hadoop.apache.org/docs/r2.7.1/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredCommands.html)
 
-![](../img/mr_cmd_ref.png)
+![](../img/mapreduce_cmd_ref.png)
 
-* [HDFS命令参考](http://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html)
+### [HDFS命令参考](http://hadoop.apache.org/docs/r2.7.1/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html)
+
+![](../img/hdfs_cmd_ref.png)
