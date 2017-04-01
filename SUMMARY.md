@@ -16,7 +16,7 @@
   * [安装Hive](install/install_hive.md)
     * [安装MySQL](install/install_mysql.md)
     * [安装及配置Hive](install/install_config_hive.md)
-* [Hadoop体验](hadoop_express/)
+* [Hadoop体验](hadoop_express/first_hadoop_app.md)
   * [第一个Hadoop程序](hadoop_express/first_hadoop_app.md)
   * [常用hadoop命令](hadoop_express/hdfs_cmd.md)
 * [Hive快速体验](hive_starting/hive_starting.md)

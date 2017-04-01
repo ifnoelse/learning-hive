@@ -2,11 +2,11 @@
 
 ## 启动HDFS
 ### 格式化namenode
-``` shell
+``` bash
 sudo -u hdfs hdfs namenode -format
 ```
 启动hdfs,将以下脚本保存到start-dfs.sh里然后运行
-``` shell
+``` bash
 #!/usr/bin/env bash
 
 echo -n "master ---> "
@@ -49,7 +49,7 @@ sudo -u hdfs hadoop fs -ls -R /
 ## 启动yarn
 将以下脚本保存到start-yarn.sh
 然后执行
-``` shell
+``` bash
 #!/usr/bin/env bash
 
 echo -n "master ---> "
@@ -63,7 +63,7 @@ do
 done
 ```
 停止yarn脚本，将以下内容保存在stop-yarn.sh中，用于关闭yarn
-``` shell
+``` bash
 #!/usr/bin/env bash
 
 echo -n "master ---> "

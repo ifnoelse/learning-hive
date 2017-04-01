@@ -4,7 +4,7 @@
 
 ### 文件操作
 1. 列出HDFS下的文件
-```bash
+``` bash
 hadoop fs -ls
 ```
 2. 列出HDFS文件下名为in的文档中的文件
