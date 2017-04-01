@@ -139,7 +139,7 @@ hadoop fs -cat /user/ifnoelse/output/part-r-00000
 ![](../img/first_hadoop_app_res.png)
 
 ## Hadoop自带的示例
-同过执行
+通过执行
 ``` bash
 hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
 ``` 
