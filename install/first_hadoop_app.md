@@ -137,3 +137,35 @@ hadoop jar hadoop-example-1.0.jar com.ifnoelse.hadoop.example.WordCount /user/if
 hadoop fs -cat /user/ifnoelse/output/part-r-00000
 ```
 ![](../img/first_hadoop_app_res.png)
+
+## Hadoop自带的示例
+同过执行
+``` bash
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
+``` 
+可以显示hadoop自带的示例程序
+* aggregatewordcount: An Aggregate based map/reduce program that counts the words in the input files.
+* aggregatewordhist: An Aggregate based map/reduce program that computes the histogram of the words in the input files.
+* bbp: A map/reduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi.
+* dbcount: An example job that count the pageview counts from a database.
+* distbbp: A map/reduce program that uses a BBP-type formula to compute exact bits of Pi.
+* grep: A map/reduce program that counts the matches of a regex in the input.
+* join: A job that effects a join over sorted, equally partitioned datasets
+* multifilewc: A job that counts words from several files.
+* pentomino: A map/reduce tile laying program to find solutions to pentomino problems.
+* pi: A map/reduce program that estimates Pi using a quasi-Monte Carlo method.
+* randomtextwriter: A map/reduce program that writes 10GB of random textual data per node.
+* randomwriter: A map/reduce program that writes 10GB of random data per node.
+* secondarysort: An example defining a secondary sort to the reduce.
+* sort: A map/reduce program that sorts the data written by the random writer.
+* sudoku: A sudoku solver.
+* teragen: Generate data for the terasort
+* terasort: Run the terasort
+* teravalidate: Checking results of terasort
+* wordcount: A map/reduce program that counts the words in the input files.
+* wordmean: A map/reduce program that counts the average length of the words in the input files.
+* wordmedian: A map/reduce program that counts the median length of the words in the input files.
+* wordstandarddeviation: A map/reduce program that counts the standard deviation of the length of the words in the input files.
+
+>注:从这里可以找到不同版本的hadoop示例程序jar
+>http://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-examples
