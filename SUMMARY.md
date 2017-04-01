@@ -1,5 +1,6 @@
 * [介绍](README.md)
 * [hadoop概览](README.md)
+  * [分布式计算](hadoop_overview/hadoop_ecosystem.md)
   * [Hadoop生态系统](hadoop_overview/hadoop_ecosystem.md)
   * [HDFS介绍](hadoop_overview/hdfs.md)
   * [YARN介绍](hadoop_overview/yarn.md)

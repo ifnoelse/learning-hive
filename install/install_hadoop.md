@@ -1,25 +1,31 @@
 # 安装hadoop
+
 ## 安装hadoop相关组件
-### 安装 Resource Manager
+
+### 安装 Resource Manager（master节点）
 ``` bash
 sudo yum clean all; sudo yum install hadoop-yarn-resourcemanager
 ```
 
-### 安装历史日志查看服务
+### 安装历史日志查看服务（master节点）
+
 ``` bash
 sudo yum clean all; sudo yum install hadoop-mapreduce-historyserver hadoop-yarn-proxyserver
 ```
 
-### 安装 NameNode
+### 安装 NameNode（master节点）
 ``` bash
 sudo yum clean all; sudo yum install hadoop-hdfs-namenode
 ```
-### 主节点之外的节点需要安装的组件
+### 主节点之外的节点需要安装的组件（所有的slave节点）
 ``` bash
 sudo yum clean all; sudo yum install hadoop-yarn-nodemanager hadoop-hdfs-datanode hadoop-mapreduce
 ```
 
-## 创建相关数据目录
+## 配置hdfs及yarn（master节点）
+
+
+### 创建相关数据目录（在所的节点上执行）
 ``` bash
 sudo cp -r /etc/hadoop/conf.empty /etc/hadoop/conf.my_cluster
 sudo cp -r ./conf/* /etc/hadoop/conf.my_cluster
@@ -32,7 +38,26 @@ sudo chmod 700 /hadoop/data/dfs/nn
 sudo mkdir -p /hadoop/data/yarn/{local,logs}
 sudo chown -R yarn:yarn /hadoop/data/yarn/local /hadoop/data/yarn/logs
 ```
-## 配置hdfs及yarn
+
+### 配置hdfs及yarn相关参数
+
+新建conf文件夹，将以上四个文件放在该目录下
+通过以下脚本同步配置到各个节点
+``` bash
+#!/usr/bin/env bash
+
+sudo cp ./conf/* /etc/hadoop/conf.my_cluster/
+
+for i in {2..3}
+do
+ssh -qt ifnoelse@node-0$i 'mkdir -p ~/hadoop/conf/'
+ssh -qt ifnoelse@node-0$i 'rm -rf ~/hadoop/conf/*'
+scp -r ./conf/* ifnoelse@node-0$i:~/hadoop/conf/
+ssh -qt ifnoelse@node-0$i 'sudo cp ./hadoop/conf/* /etc/hadoop/conf.my_cluster/'
+done
+```
+将以上内容保存在sync-conf.sh之中，放在与conf文件夹平级位置，然后执行
+
 **core-site.xml**
 ``` xml
 <?xml version="1.0"?>
@@ -212,4 +237,83 @@ sudo chown -R yarn:yarn /hadoop/data/yarn/local /hadoop/data/yarn/logs
     <value>3096</value>
 </property>
 </configuration>
+```
+
+## 启动hdfs及yarn
+
+### 启动HDFS
+#### 格式化namenode
+``` shell
+sudo -u hdfs hdfs namenode -format
+```
+启动hdfs,将以下脚本保存到start-dfs.sh里然后运行
+``` shell
+#!/usr/bin/env bash
+
+echo -n "master ---> "
+for x in `cd /etc/init.d ; ls hadoop-hdfs-*` ; do sudo service $x start ; done
+
+for i in {2..3}
+do
+    echo -n "node-0$i ---> "
+    ssh -qt ifnoelse@node-0$i 'for x in `cd /etc/init.d ; ls hadoop-hdfs-*` ; do sudo service $x start ; done'
+done
+```
+![](../img/start_hdfs.png)
+
+停止hdfs脚本，将以下内存保存在stop-dfs.sh用于关闭hdfs
+``` bash
+#!/usr/bin/env bash
+
+echo -n "master ---> "
+for x in `cd /etc/init.d ; ls hadoop-hdfs-*` ; do sudo service $x stop ; done
+
+for i in {2..3}
+do
+    echo -n "node-0$i ---> "
+    ssh -qt ifnoelse@node-0$i 'for x in `cd /etc/init.d ; ls hadoop-hdfs-*` ; do sudo service $x stop ; done'
+done
+```
+#### 初始化HDFS中的相关目录
+执行以下命令完成相关目录创建
+``` shell
+sudo -u hdfs hadoop fs -mkdir /tmp
+sudo -u hdfs hadoop fs -chmod -R 1777 /tmp
+sudo -u hdfs hadoop fs -mkdir -p /user/history
+sudo -u hdfs hadoop fs -chmod -R 1777 /user/history
+sudo -u hdfs hadoop fs -chown mapred:hadoop /user/history
+sudo -u hdfs hadoop fs -mkdir -p /var/log/hadoop-yarn
+sudo -u hdfs hadoop fs -chown yarn:mapred /var/log/hadoop-yarn
+sudo -u hdfs hadoop fs -ls -R /
+```
+
+### 启动yarn
+将以下脚本保存到start-yarn.sh
+然后执行
+``` shell
+#!/usr/bin/env bash
+
+echo -n "master ---> "
+sudo service hadoop-yarn-resourcemanager start
+sudo service hadoop-mapreduce-historyserver start
+
+for i in {2..3}
+do
+    echo -n "node-0$i ---> "
+    ssh -qt ifnoelse@node-0$i 'sudo service hadoop-yarn-nodemanager start'
+done
+```
+停止yarn脚本，将以下内容保存在stop-yarn.sh中，用于关闭yarn
+``` shell
+#!/usr/bin/env bash
+
+echo -n "master ---> "
+sudo service hadoop-yarn-resourcemanager stop
+sudo service hadoop-mapreduce-historyserver stop
+
+for i in {2..3}
+do
+    echo -n "node-0$i ---> "
+    ssh -qt ifnoelse@node-0$i 'sudo service hadoop-yarn-nodemanager stop'
+done
 ```
