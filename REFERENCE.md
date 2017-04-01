@@ -12,3 +12,4 @@
   * [Cloudera Product Documentation](https://www.cloudera.com/documentation.html)
   * [Hadoop常用组件](http://www.cnblogs.com/tankaixiong/p/4273178.html)
   * [Hadoop Ecosystem Table](http://hadoopecosystemtable.github.io/)
+  * [HDFS常用命令](http://www.cnblogs.com/gaopeng527/p/4314215.html)
