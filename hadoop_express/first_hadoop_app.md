@@ -1,5 +1,7 @@
 # 第一个Hadoop程序
 我们来运行hadoop世界的“hello world”程序,一个用来统计单词出现次数的word count程序
+## 原理
+![](../img/wordcount_logic.png)
 ## 准备数据
 创建用户目录
 ``` bash
