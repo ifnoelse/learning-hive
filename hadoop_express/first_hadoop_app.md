@@ -1,6 +1,6 @@
 # 第一个Hadoop程序
 我们来运行hadoop世界的“hello world”程序,一个用来统计单词出现次数的word count程序
-## 原理
+## WordCount原理图
 ![](../img/wordcount_logic.png)
 ## 准备数据
 创建用户目录
@@ -171,3 +171,12 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
 
 >注:从这里可以找到不同版本的hadoop示例程序jar
 >http://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-examples
+
+## MapReduce中的数据关联
+* Repartition join—A reduce-side join for situations where you’re joining two or
+more large datasets together
+* Replication join—A map-side join that works in situations where one of the datasets is small enough to cache
+* Semi-join—Another map-side join where one dataset is initially too large to fit
+into memory, but after some filtering can be reduced down to a size that can fit
+in memory
+>更多数据连接细节请参考《Hadoop in Practice, 2nd Edition》第6章
