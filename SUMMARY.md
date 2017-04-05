@@ -5,7 +5,7 @@
   * [HDFS介绍](hadoop_overview/hdfs.md)
   * [YARN介绍](hadoop_overview/yarn.md)
   * [Hive介绍](hadoop_overview/hive.md)
-* [安装](install/README.md)
+* [安装集群](install/README.md)
   * [Hadoop发行版本](install/hadoop_dist.md)
   * [安装CDH5](install/install_cdh5.md)
     * [准备服务器](install/prepare_server.md)
