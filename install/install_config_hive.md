@@ -1,12 +1,23 @@
 # 安装及配置Hive
-
+## hive安装
+``` bash
+sudo yum install hive hive-metastore hive-server2
+```
 ## 初始化hive元数据库
+创建元数据库
 ``` bash
 $ mysql -u root -p
 Enter password:
 mysql> CREATE DATABASE metastore;
 mysql> USE metastore;
 mysql> SOURCE /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-schema-1.1.0.mysql.sql
+```
+在mysql中创建hive用户
+``` bash
+$ mysql -u root -p
+Enter password:
+mysql> CREATE USER 'hive'@'localhost' IDENTIFIED BY 'user_hive_passwd';
+mysql> GRANT ALL ON metastore.* TO  'hive'@'%' IDENTIFIED BY 'user_hive_passwd';
 ```
 如果遇到如下错误
 
@@ -52,7 +63,7 @@ SOURCE /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-txn-schema-0.13.0.mysq
 
 <property>
   <name>javax.jdo.option.ConnectionPassword</name>
-  <value>user_db_passwd</value>
+  <value>user_hive_passwd</value>
 </property>
 
 <property>
@@ -102,4 +113,4 @@ SOURCE /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-txn-schema-0.13.0.mysq
 ``` shell
 sudo service hive-metastore start
 ```
-日过不能正常启动请查看相关日志，路径/var/log/hive/hive-metastore.log
+如果不能正常启动请查看相关日志，路径/var/log/hive/hive-metastore.log

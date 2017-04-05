@@ -18,3 +18,9 @@ sudo service mysqld start
 ``` bash
 sudo grep 'temporary password' /var/log/mysqld.log
 ```
+修改mysql密码
+``` bash
+$ mysql -u root -p
+Enter password:
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'user_root_passwd';
+```
