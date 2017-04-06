@@ -22,5 +22,5 @@
 * [Hive快速体验](hive_express/README.md)
   * [Hive介绍](hive_express/hive_intro.md)
   * [第一个Hive程序](hive_express/first_hive_app.md)
-  * [基础操作](hive_express/hive_base_op.md)
+  * [Hive快速上手](hive_express/hive_base_op.md)
 * [参考文献](REFERENCE.md)
