@@ -28,4 +28,7 @@
   * [格式转换](hive_datatype/implicit_conversions.md)
   * [存储格式](hive_datatype/store_datatype.md)
   * [使用ORC](hive_datatype/use_orc.md)
+* [Hive数据管理](hive_data_management/README.md)
+  * [管理表与外部表](hive_data_management/managed_external_table.md)
+  * [创建表](hive_data_management/create_table.md)
 * [参考文献](REFERENCE.md)
