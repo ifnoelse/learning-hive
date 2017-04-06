@@ -248,5 +248,5 @@ TRUNCATE TABLE tvlog;
 * 删除数据库
 
 ``` sql
-DROP DATABASE mydb;
+DROP DATABASE mydb [CASCADE];
 ```
