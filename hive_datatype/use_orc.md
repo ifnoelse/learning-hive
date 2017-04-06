@@ -35,5 +35,5 @@ insert into table tvlog_orc select * from tvlog;
 
 ## 查看Hive中数据大小
 ``` bash
-hadoop fs -ls -h -R /usr/hive
+hadoop fs -ls -h -R /user/hive
 ```

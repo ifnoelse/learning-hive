@@ -97,17 +97,17 @@ SOURCE /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-txn-schema-0.13.0.mysq
 
 <property>
  <name>hive.metastore.warehouse.dir</name>
- <value>/usr/hive/warehouse</value>
+ <value>/user/hive/warehouse</value>
 </property>
 
 <property>
 <name>hive.exec.scratchdir</name>
-<value>/usr/hive/tmp</value>
+<value>/user/hive/tmp</value>
 </property>
 
 <property>
 <name>hive.querylog.location</name>
-<value>/usr/hive/log</value>
+<value>/user/hive/log</value>
 </property>
 
 </configuration>
