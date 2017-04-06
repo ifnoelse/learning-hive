@@ -1,59 +1,4 @@
 # Hive 快速上手
-
-## 创建数据数据库
-``` sql
-create database mydb;
-```
-## 创建表
-``` sql
-CREATE TABLE IF NOT EXISTS tvlog 
-( 
-uid string, 
-ch string, 
-starttime string, 
-endtime string 
-) 
-ROW FORMAT DELIMITED 
-FIELDS TERMINATED BY '\t' 
-STORED AS TEXTFILE;
-```
-## 到入数据
-``` sql
-LOAD DATA LOCAL INPATH '/home/ifnoelse/tvlog' OVERWRITE INTO TABLE tvlog;
-```
-## 查询数据
-``` sql
-select count(distinct uid),region from tvlog group by region;
-```
-## 其他常用命令
-* 显示所有的数据库
-``` sql
-SHOW databases;
-```
-* 切换数据库
-``` sql
-USE tvlog;
-```
-* 显示所有的表
-``` sql
-SHOW TABLES;
-SHOW TABLES 'tv*';
-SHOW TABLES IN mydb;
-```
-* 显示表详情
-``` sql
-DESC tvlog;
-DESCRIBE EXTENDED tvlog;
-DESCRIBE FORMATTED tvlog;
-```
-* 删除表
-``` sql
-DROP TABLE tvlog;
-```
-* 删除数据库
-``` sql
-DROP DATABASE mydb;
-```
 ## 数据生成工具
 ### 帮助信息
 ``` bash
@@ -104,4 +49,147 @@ tvlog(用户ID，频道，开始时间，结束时间)
 5	湖北卫视	2017-04-07 02:30:41	2017-04-07 04:11:47
 8	东南卫视	2017-04-07 00:35:00	2017-04-07 03:01:25
 1	宁夏卫视	2017-04-07 03:34:53	2017-04-07 04:34:07
+```
+## 创建数据数据库
+``` sql
+create database mydb;
+```
+## 创建表
+用户表（用户ID，姓名，性别，年龄，教育程度，地址）
+``` sql
+CREATE TABLE IF NOT EXISTS user 
+( 
+uid string, 
+name string, 
+sex string, 
+age string,
+edu string,
+addr string
+) 
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY '\t' 
+STORED AS TEXTFILE;
+```
+观看行为表
+``` sql
+CREATE TABLE IF NOT EXISTS tvlog 
+( 
+uid string, 
+ch string, 
+starttime string, 
+endtime string 
+) 
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY '\t' 
+STORED AS TEXTFILE;
+```
+## 加载数据
+``` sql
+LOAD DATA LOCAL INPATH '/home/ifnoelse/user' OVERWRITE INTO TABLE user;
+LOAD DATA LOCAL INPATH '/home/ifnoelse/tvlog' OVERWRITE INTO TABLE tvlog;
+```
+## 查询数据
+显示表中10条记录
+``` sql
+select * from mydb.user limit 10;
+select * from mydb.tvlog limit 10;
+```
+按地域统计tvlog中的独立用户数
+``` sql
+SELECT COUNT(DISTINCT t.uid), u.addr
+FROM mydb.user u, mydb.tvlog t
+WHERE u.uid = t.uid
+GROUP BY u.addr
+```
+统计tvlog中30到35的用户数
+``` sql
+SELECT COUNT(DISTINCT t.uid), u.age
+FROM (SELECT uid, age
+	FROM mydb.user
+	WHERE age >= '30'
+		AND age <= '35'
+	) u, mydb.tvlog t
+WHERE u.uid = t.uid
+GROUP BY u.age
+ORDER BY u.age
+```
+## 单次执行
+执行sql并将结果写入result.txt文件
+``` bash
+hive -e "select count(distinct t.uid),u.addr from mydb.user u,mydb.tvlog t where u.uid=t.uid group by u.addr" > result.txt
+```
+## 用程序处理结果集
+去掉结果集中城市中的‘市’字，比如“北京市”修改成“北京”
+
+* 查询语句
+``` bash
+hive -e "select count(distinct t.uid),u.addr from mydb.user u,mydb.tvlog t where u.uid=t.uid group by u.addr" | java/python trim > result.txt
+```
+
+* python代码
+``` python
+# -*- coding: utf-8 -*- 
+import sys
+for ln in sys.stdin:
+    print ln.replace('市',''),
+```
+
+* java代码
+``` java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class trim {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        for(String ln =br.readLine();ln!=null;ln=br.readLine()){
+            String r = ln.replaceAll("市","");
+            System.out.println(r);
+        }
+
+    }
+}
+```
+
+## 其他常用命令
+* 显示所有的数据库
+``` sql
+SHOW databases;
+```
+* 切换数据库
+``` sql
+USE tvlog;
+```
+* 显示所有的表
+``` sql
+SHOW TABLES;
+SHOW TABLES 'tv*';
+SHOW TABLES IN mydb;
+```
+* 在命令行中显示当前数据库名                                                      
+``` sql
+set hive.cli.print.current.db=true;  
+``` 
+* 查询出来的结果显示列的名称  
+``` sql
+set hive.cli.print.header=true;
+```
+* 显示表详情
+``` sql
+DESC tvlog;
+DESCRIBE EXTENDED tvlog;
+DESCRIBE FORMATTED tvlog;
+```
+* 删除表
+``` sql
+DROP TABLE tvlog;
+```
+* 清空表
+``` sql
+TRUNCATE TABLE tvlog;
+```
+* 删除数据库
+``` sql
+DROP DATABASE mydb;
 ```
