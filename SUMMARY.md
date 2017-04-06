@@ -23,4 +23,7 @@
   * [Hive介绍](hive_express/hive_intro.md)
   * [第一个Hive程序](hive_express/first_hive_app.md)
   * [Hive快速上手](hive_express/hive_base_op.md)
+* [Hive数据类型](hive_datatype/README.md)
+  * [字段类型](hive_datatype/field_datatype.md)
+  * [存储格式](hive_datatype/store_datatype.md)
 * [参考文献](REFERENCE.md)

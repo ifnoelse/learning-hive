@@ -6,6 +6,7 @@
   * 《Apache Hadoop YARN》
   * 《Professional Hadoop》
   * 《SQL on Big Data》
+  * 《Apache Hive Essentials》
   * 《Hive编程指南》
 
 * 文档

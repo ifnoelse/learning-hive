@@ -22,6 +22,8 @@ user(用户ID,姓名，性别，年龄，教育程度，地址)
 tvlog(用户ID，频道，开始时间，结束时间)
 
 ```
+> 生成数据的合理性：学历是有比例控制的基本符合现实情况，用户观看行为在时间上是合理的
+
 ### 生成用户信息
 ``` bash
 [ifnoelse@node-01 ~]$ java -jar data-gen.jar -r 10
@@ -120,13 +122,14 @@ hive -e "select count(distinct t.uid),u.addr from mydb.user u,mydb.tvlog t where
 ```
 ## 用程序处理结果集
 去掉结果集中城市中的‘市’字，比如“北京市”修改成“北京”
-
 * 查询语句
+
 ``` bash
 hive -e "select count(distinct t.uid),u.addr from mydb.user u,mydb.tvlog t where u.uid=t.uid group by u.addr" | java/python trim > result.txt
 ```
 
 * python代码
+
 ``` python
 # -*- coding: utf-8 -*- 
 import sys
@@ -135,6 +138,7 @@ for ln in sys.stdin:
 ```
 
 * java代码
+
 ``` java
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -151,45 +155,98 @@ public class trim {
     }
 }
 ```
+## 用户变量
+``` sql
+set zzz=5;
+--  sets zzz=5
+set zzz;
+ 
+set system:xxx=5;
+set system:xxx;
+-- sets a system property xxx to 5
+ 
+set system:yyy=${system:xxx};
+set system:yyy;
+-- sets yyy with value of xxx
+ 
+set go=${hiveconf:zzz};
+set go;
+-- sets go base on value on zzz
+ 
+set hive.variable.substitute=false;
+set raw=${hiveconf:zzz};
+set raw;
+-- disable substitution set a value to the literal
+ 
+set hive.variable.substitute=true;
+ 
+EXPLAIN SELECT * FROM src where key=${hiveconf:zzz};
+SELECT * FROM src where key=${hiveconf:zzz};
+--use a variable in a query
+ 
+set a=1;
+set b=a;
+set c=${hiveconf:${hiveconf:b}};
+set c;
+--uses nested variables.
+ 
+ 
+set jar=../lib/derby.jar;
+ 
+add file ${hiveconf:jar};
+list file;
+delete file ${hiveconf:jar};
+list file;
+```
+>参考：https://cwiki.apache.org/confluence/display/Hive/LanguageManual+VariableSubstitution
 
 ## 其他常用命令
 * 显示所有的数据库
+
 ``` sql
 SHOW databases;
 ```
 * 切换数据库
+
 ``` sql
 USE tvlog;
 ```
 * 显示所有的表
+
 ``` sql
 SHOW TABLES;
 SHOW TABLES 'tv*';
 SHOW TABLES IN mydb;
 ```
-* 在命令行中显示当前数据库名                                                      
+* 在命令行中显示当前数据库名
+                                                
 ``` sql
-set hive.cli.print.current.db=true;  
+set hive.cli.print.current.db=true; 
 ``` 
-* 查询出来的结果显示列的名称  
+* 查询出来的结果显示列的名称
+
 ``` sql
 set hive.cli.print.header=true;
 ```
 * 显示表详情
+
 ``` sql
 DESC tvlog;
 DESCRIBE EXTENDED tvlog;
 DESCRIBE FORMATTED tvlog;
 ```
 * 删除表
+
 ``` sql
 DROP TABLE tvlog;
 ```
 * 清空表
+
 ``` sql
 TRUNCATE TABLE tvlog;
 ```
 * 删除数据库
+
 ``` sql
 DROP DATABASE mydb;
 ```
