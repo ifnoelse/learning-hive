@@ -27,4 +27,5 @@
   * [字段类型](hive_datatype/field_datatype.md)
   * [格式转换](hive_datatype/implicit_conversions.md)
   * [存储格式](hive_datatype/store_datatype.md)
+  * [使用ORC](hive_datatype/use_orc.md)
 * [参考文献](REFERENCE.md)

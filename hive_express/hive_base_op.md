@@ -221,7 +221,7 @@ SHOW TABLES IN mydb;
 * 在命令行中显示当前数据库名
                                                 
 ``` sql
-set hive.cli.print.current.db=true; 
+set hive.cli.print.current.db=true;
 ``` 
 * 查询出来的结果显示列的名称
 

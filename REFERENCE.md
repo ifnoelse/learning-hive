@@ -17,3 +17,4 @@
   * [Hadoop Ecosystem Table](http://hadoopecosystemtable.github.io/)
   * [HDFS常用命令](http://www.cnblogs.com/gaopeng527/p/4314215.html)
   * [Parquet与ORC对比](http://dongxicheng.org/mapreduce-nextgen/columnar-storage-parquet-and-orc/)
+  * [hive使用orcfile parquet sequencefile](http://blog.csdn.net/u011750989/article/details/50055959)
