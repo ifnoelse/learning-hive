@@ -41,3 +41,23 @@ create external table kv (key int, values string)  location 's3n://data.s3ndemo.
 * LOCATION 指定的路径应该为目录而不是文件
 * 后续添加到LOCATION目录中的文件会被自动识别
 * OVERWRITE INTO依然可以覆盖外部表中的数据
+
+## 创建临时表
+临时表在hive session结束之后会自动删除
+``` sql
+CREATE TEMPORARY TABLE IF NOT EXISTS user_tmp 
+( 
+uid string, 
+name string, 
+sex string, 
+age string,
+edu string,
+addr string
+) 
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY '\t' 
+STORED AS TEXTFILE;
+```
+
+## 更多创建表的方式
+请参考《Apache Hive Essentials》96页
