@@ -26,4 +26,5 @@
 * [Hive数据类型](hive_datatype/README.md)
   * [字段类型](hive_datatype/field_datatype.md)
   * [存储格式](hive_datatype/store_datatype.md)
+  * [隐式转换](hive_datatype/implicit_conversions.md)
 * [参考文献](REFERENCE.md)
