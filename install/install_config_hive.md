@@ -38,7 +38,9 @@ SOURCE /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-txn-schema-0.13.0.mysq
 ## 配置hive
 下载mysql jdbc驱动：[mysql-connector-java-5.1.41.jar](http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar)
 <br />将mysql驱动放到/usr/lib/hive/lib下
-<br />修改/etc/hive/conf/hive-site.xml配置如下
+> 不要是用6.x版本的msyql驱动，hive无法识别
+
+修改/etc/hive/conf/hive-site.xml配置如下
 ``` xml
 <?xml version="1.0"?>
 
