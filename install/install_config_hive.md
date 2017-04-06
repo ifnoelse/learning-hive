@@ -32,7 +32,8 @@ SOURCE hive-txn-schema-0.13.0.mysql.sql;
 ```
 SOURCE /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-txn-schema-0.13.0.mysql.sql;
 ```
-然后删掉数据库再重新运行一下元数据初始过程
+或者切换到
+/usr/lib/hive/scripts/metastore/upgrade/mysql/目录下，然后删掉数据库再重新运行一下元数据初始过程
 
 ## 配置hive
 下载mysql jdbc驱动：[mysql-connector-java-5.1.41.jar](http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar)
