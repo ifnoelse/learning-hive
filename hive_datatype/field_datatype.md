@@ -23,7 +23,6 @@
 
 | 复杂数据类型 | 描述 | 示例 |
 | ------------- |:-------------:| -----:|
-| Complex data type | Description | Example |
 | ARRAY | This is a list of items of the same type, such as (val1, val2, and so on). You can access the value using array_name[index], for example, fruit[0]='apple'. | [‘apple’,‘orange’,‘mango’] |
 | MAP | This is a set of key-value pairs, such as (key1, val1, key2, val2, and so on). You can access the value using map_name[key], for example, fruit[1]="apple". | {1: “apple”,2: “orange”} |
 | STRUCT | This is a user-defined structure of any type of fields, such as {val1, val2, val3, and so on}. By default, STRUCT field names will be col1, col2, and so on. You can access the value using structs_name.column_name, for example, fruit.col1=1. | {1, “apple”} |
