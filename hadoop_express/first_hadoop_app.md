@@ -18,6 +18,7 @@ hadoop fs -ls -R /
 
 上传文本文件到hdfs测试hadoop程序,内容最好是英文
 ``` bash
+sudo usermod -aG hadoop ifnoelse
 hadoop fs -mkdir /user/ifnoelse/input
 hadoop fs -put words.txt /user/ifnoelse/input
 ```
