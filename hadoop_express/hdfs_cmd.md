@@ -13,7 +13,7 @@ hadoop fs -ls in
 ```
 3. 上传文件，将hadoop目录下的test1文件上传到HDFS上并重命名为test：
 ``` bash
-/usr/local/hadoop$bin/hadoop dfs -put test1 test
+hadoop fs -put test1 test
 ```
 4. 文件被复制到本地系统中，将HDFS中的in文件复制到本地系统并命名为getin：
 ``` bash
