@@ -3,10 +3,11 @@
 * 书籍
   * 《Hadoop The Definitive Guide, 4th Edition》
   * 《Hadoop in Practice, 2nd Edition》
+  * 《Apache Hive Essentials》
   * 《Apache Hadoop YARN》
   * 《Professional Hadoop》
   * 《SQL on Big Data》
-  * 《Apache Hive Essentials》
+  * 《Practical Hive》
   * 《Hive编程指南》
 
 * 文档
