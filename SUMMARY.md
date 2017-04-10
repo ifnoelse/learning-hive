@@ -32,4 +32,6 @@
   * [管理表与外部表](hive_data_management/managed_external_table.md)
   * [创建表](hive_data_management/create_table.md)
   * [数据划分](hive_data_management/data_split.md)
+* [数据使用](hive_data_use/README.md)
+  * [JDBC服务](hive_data_use/hive_jdbc.md)
 * [参考文献](REFERENCE.md)
