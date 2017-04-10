@@ -6,13 +6,13 @@ http://archive.cloudera.com/cdh5/repo-as-tarball/
 > 比如cdh5.10安装包cdh5.10.0-centos7.tar.gz就可以了
 
 ### 安装nginx
-[nginx安装方法]([http://nginx.org/en/linux_packages.html])
+[nginx安装方法](http://nginx.org/en/linux_packages.html)
 
 ### 配置nginx做为yum本地源
 将刚才下载的cdh软件包解压到/usr/share/nginx/html/
 ![](../img/chd_repo.png)
 
-修改cdh/cloudera-cdh5.repo
+新建cdh/cloudera-cdh5.repo
 ```
 [cloudera-cdh5]
 # Packages for Cloudera's Distribution for Hadoop, Version 5, on RedHat    or CentOS 7 x86_64
@@ -29,7 +29,7 @@ nginx
 在各个节点上配置本地yum源
 ```
 wget http://node-01/cdh/cloudera-cdh5.repo
-cp cloudera-cdh5.repo /etc/yum.repos.d/
+sudo cp cloudera-cdh5.repo /etc/yum.repos.d/
 ```
 > node-01为nginx安装的节点计算机名
 

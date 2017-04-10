@@ -116,4 +116,4 @@ SOURCE /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-txn-schema-0.13.0.mysq
 ``` shell
 sudo service hive-metastore start
 ```
-如果不能正常启动请查看相关日志，路径/var/log/hive/hive-metastore.log
+> 如果不能正常启动请查看相关日志，路径/var/log/hive/hive-metastore.log
