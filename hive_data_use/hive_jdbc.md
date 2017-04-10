@@ -39,7 +39,15 @@ sudo vim /usr/lib/hive/conf/user.password.conf
 ifnoelse,密码的32位md5指
 >示例：ifnoelse,e10adc3949ba59abbe56e057f20f883e
 
-## 启动hive-server2
+## 启动Hive Server2
 ``` bash
 sudo service hive-server2 start
 ```
+
+## Hive JDBC客户端
+### 客户端下载地址
+http://dbeaver.jkiss.org/
+### JDBC config
+![](../img/hive_jdbc_config.png)
+### JDBC 使用示例
+![](../img/hive_jdbc.png)
