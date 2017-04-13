@@ -53,3 +53,10 @@ select * from month where "3"=cast(3 as string);
 select * from month where "03"=cast(3 as int);
 select * from month where "03"=cast(3 as string);
 ```
+由以下结果猜想，上边的问题应该是等号左右的比较对象都转成了double
+``` sql
+hive> select "03"+3;
+OK
+6.0
+Time taken: 0.065 seconds, Fetched: 1 row(s)
+```
