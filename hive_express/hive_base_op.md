@@ -250,3 +250,10 @@ TRUNCATE TABLE tvlog;
 ``` sql
 DROP DATABASE mydb [CASCADE];
 ```
+导出数据
+``` sql
+INSERT OVERWRITE DIRECTORY '/user/ifnoelse/mydata'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT * FROM tvlog;
+```
+> 导出数据到hdfs，所指定的目录如果不存在会自动创建
