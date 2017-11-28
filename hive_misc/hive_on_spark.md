@@ -75,5 +75,5 @@ hive> set hive.execution.engine=spark;
 ```
 
 ### 错误处理
-如果遇到以下错误，请按照Hbase
+如果遇到以下错误，请安装Hbase
 ![](../img/hive_spark_error.png)
