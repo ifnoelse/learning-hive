@@ -1,7 +1,7 @@
 # Hadoop 概述
 本书主要是为了让没有大数据基础的同学能够快速搭建及使用Hive
 # 阅读地址
-https://www.gitbook.com/book/ifnoelse/learning-hive/details
+https://ifnoelse.gitbooks.io/learning-hive/content/
 # 目录
 * [介绍](README.md)
 * [hadoop概览](hadoop_overview/README.md)
