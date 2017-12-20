@@ -16,3 +16,4 @@ SELECT word, count(1) AS count FROM
 GROUP BY word
 ORDER BY word;
 ```
+> words.txt 文件在 res 目录下
