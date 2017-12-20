@@ -17,7 +17,7 @@ sudo chown -R yarn:yarn /hadoop/data/yarn/local /hadoop/data/yarn/logs
 
 ### 配置hdfs及yarn相关参数
 
-新建conf文件夹，将以上四个文件放在该目录下
+新建conf文件夹，将以下四个文件放在该目录下
 通过以下脚本同步配置到各个节点
 ``` bash
 #!/usr/bin/env bash
